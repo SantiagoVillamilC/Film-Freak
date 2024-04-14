@@ -87,7 +87,7 @@ header {
 	width: 100%;
 	align-items: center;
 	
-	background-image: url('https://www.etapainfantil.com/wp-content/uploads/2020/05/Peliculas-Netflix-familiares-1000x563.jpg.webp');
+	/* background-image: url('https://www.etapainfantil.com/wp-content/uploads/2020/05/Peliculas-Netflix-familiares-1000x563.jpg.webp'); */
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100%;
@@ -112,6 +112,12 @@ header {
 	padding: 1vh 3vw;
 	align-items: center;
 	/* background: linear-gradient(to top, rgba(255, 255, 255, 0), var(--background)); */
+
+	backdrop-filter: blur(5px);
+    /* border-style: solid; */
+    /* border-color: white; */
+    /* border-width: 2px; */
+    /* border-radius: 15px; */
 
 	&:hover{
 		background-color: var(--background);
@@ -195,11 +201,7 @@ header {
 	padding-bottom: 10vh;
 
     /* z-index: 1; */
-    backdrop-filter: blur(10px);
-    border-style: solid;
-    border-color: white;
-    border-width: 2px;
-    border-radius: 15px;
+    
 }
 
 .container-buttons-hero {
