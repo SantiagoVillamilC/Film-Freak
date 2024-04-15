@@ -139,6 +139,36 @@ const cargarCincoPopulares = async () => {
             let fourthTitleCardPopular = document.getElementById('fourthTitleCardPopular');
             fourthTitleCardPopular.textContent = populares[3].title;
 
+            // Manejar el evento de clic en el botón
+            document.getElementById('firstButtonPopular').addEventListener('click', function () {
+                // Obtener el ID de la película o cualquier otro dato necesario
+                let movieId = `${populares[0].id}`; // Debes reemplazar esto con el ID de la película que deseas mostrar
+
+                // Redireccionar a la página de la película con el ID como parámetro de consulta
+                // Agregar un pequeño retraso para asegurarnos de que la URL se actualice antes de la redirección
+                setTimeout(() => {
+                    window.location.href = `movie.html?id=${movieId}`;
+                }, 10);
+            });
+            document.getElementById('secondButtonPopular').addEventListener('click', function () {
+                let movieId = `${populares[1].id}`;
+                setTimeout(() => {
+                    window.location.href = `movie.html?id=${movieId}`;
+                }, 10);
+            });
+            document.getElementById('thirdButtonPopular').addEventListener('click', function () {
+                let movieId = `${populares[2].id}`;
+                setTimeout(() => {
+                    window.location.href = `movie.html?id=${movieId}`;
+                }, 10);
+            });
+            document.getElementById('fourButtonPopular').addEventListener('click', function () {
+                let movieId = `${populares[3].id}`;
+                setTimeout(() => {
+                    window.location.href = `movie.html?id=${movieId}`;
+                }, 10);
+            });
+
             let index = 0;
 
             // Función para mostrar el título de las películas de forma ordenada

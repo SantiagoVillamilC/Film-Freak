@@ -102,7 +102,7 @@ header {
     left: 0;
     width: 100%;
     height: 10vh; /* Adjust height for fade-out length */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--background));
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--background)); */
   }
 }
 .header-bar{
@@ -127,7 +127,7 @@ header {
 }
 
 .logo-header h1{
-	background: linear-gradient(to left, #8A2BE2, #00FFFF);
+	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -212,6 +212,7 @@ header {
 	justify-content: center;
 	margin: 0 1rem;
 	text-align: center;
+	gap: 1rem;
 }
 
 .container-buttons-hero {
@@ -230,14 +231,56 @@ header {
     justify-content: center;
 }
 
-.right-side-hero {
-    margin-right: 2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container-invitation-filter{
+	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
+	margin: 0 3vw;
+	color: var(--background);
+	text-align: center;
+	padding: 2rem;
+	border-radius: 20px;
+}
+a{
+	text-decoration: none;
+}
+main{
+	display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: 7rem;
+    grid-gap: 1.25rem;
+    position: relative;
+
+	margin: 2rem 3rem;
+}
+.section-in-theaters{
+	background-color: var(--background-minus-black);
+	grid-column: auto/span 8;
+    grid-row: auto/span 3;
+}
+.section-trailers{
+	background-color: var(--background-minus-black);
+	grid-column: auto/span 4;
+    grid-row: auto/span 9;
+}
+.section-popular{
+	background-color: var(--background-minus-black);
+	grid-column: auto/span 8;
+    grid-row: auto/span 3;
+}
+.section-top-rated{
+	background-color: var(--background-minus-black);
+	grid-column: auto/span 8;
+    grid-row: auto/span 3;
 }
 
-.right-side-hero img {
-    /* height: 100%; */
-	z-index: 0;
+.button-movie-popular{
+	cursor: pointer;
+	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	border-radius: 10px;
+	border-color: var(--background);
+	border-width: 1px;
+	border-style: solid;
+	padding: 0.5rem;
 }
