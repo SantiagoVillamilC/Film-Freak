@@ -97,7 +97,7 @@ cargarPeliculas();
 
 const cargarCincoPopulares = async () => {
     try {
-        const respuesta = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=cace972f4626db6a5ee3ae755a24b03d&Language=es-MX`);
+        const respuesta = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=cace972f4626db6a5ee3ae755a24b03d&Language=es-MX&page=${pagina}`);
         console.log(respuesta);
 
         //Si la respuesta es correcta
