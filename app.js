@@ -17,39 +17,39 @@ btnAnterior.addEventListener('click', () => {
 });
 
 
-const cargarPeliculas = async() => {
-	try {
-		const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX&page=${pagina}`);
-	
-		console.log(respuesta);
+const cargarPeliculas = async () => {
+    try {
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX&page=${pagina}`);
 
-		// Si la respuesta es correcta
-		if(respuesta.status === 200){
-			const datos = await respuesta.json();
-			
-			let peliculas = '';
-			datos.results.forEach(pelicula => {
-				peliculas += `
+        console.log(respuesta);
+
+        // Si la respuesta es correcta
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
+
+            let peliculas = '';
+            datos.results.forEach(pelicula => {
+                peliculas += `
 					<div class="pelicula">
 						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
 						<h3 class="titulo">${pelicula.title}</h3>
 					</div>
 				`;
-			});
+            });
 
-			document.getElementById('contenedor').innerHTML = peliculas;
+            document.getElementById('contenedor').innerHTML = peliculas;
 
-		} else if(respuesta.status === 401){
-			console.log('Pusiste la llave mal');
-		} else if(respuesta.status === 404){
-			console.log('La pelicula que buscas no existe');
-		} else {
-			console.log('Hubo un error y no sabemos que paso');
-		}
+        } else if (respuesta.status === 401) {
+            console.log('Pusiste la llave mal');
+        } else if (respuesta.status === 404) {
+            console.log('La pelicula que buscas no existe');
+        } else {
+            console.log('Hubo un error y no sabemos que paso');
+        }
 
-	} catch(error){
-		console.log(error);
-	}
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 
@@ -105,42 +105,60 @@ const cargarCincoPopulares = async () => {
             const datos = await respuesta.json();
             console.log(datos);
 
-            let peliculas = '';
-
             let populares = [];
 
-            for (i = 0; i < 5; i++) {
-                populares.push(JSON.stringify(datos.results[i]));
+            for (let i = 0; i < 4; i++) {
+                populares.push(JSON.parse(JSON.stringify(datos.results[i])));
             }
+
+            // Ahora 'populares' contiene los objetos de las películas populares
 
             // console.log('Populares: ' + (populares));
 
-            for (i = 0; i < 5; i++) {
-                let popularTitle = JSON.parse(populares[i]);
-                console.log("Primeras 5 peliculas mas populares hoy: ", popularTitle.title);
+            for (let i = 0; i < 4; i++) {
+                console.log("Primeras 4 películas más populares hoy: ", populares[i].title, populares[i].poster_path);
             }
 
-            // title_hero.textContent = JSON.parse(populares.title[0]);
+            let firstCardPopular = document.getElementById('firstCardPopular');
+            firstCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[0].poster_path})`;
+            let firstTitleCardPopular = document.getElementById('firstTitleCardPopular');
+            firstTitleCardPopular.textContent = populares[0].title;
+
+            let secondCardPopular = document.getElementById('secondCardPopular');
+            secondCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[1].poster_path})`;
+            let secondTitleCardPopular = document.getElementById('secondTitleCardPopular');
+            secondTitleCardPopular.textContent = populares[1].title;
+
+            let thirdCardPopular = document.getElementById('thirdCardPopular');
+            thirdCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[2].poster_path})`;
+            let thirdTitleCardPopular = document.getElementById('thirdTitleCardPopular');
+            thirdTitleCardPopular.textContent = populares[2].title;
+
+            let fourthCardPopular = document.getElementById('fourthCardPopular');
+            fourthCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[3].poster_path})`;
+            let fourthTitleCardPopular = document.getElementById('fourthTitleCardPopular');
+            fourthTitleCardPopular.textContent = populares[3].title;
 
             let index = 0;
 
             // Función para mostrar el título de las películas de forma ordenada
             function mostrarCincoPopulares() {
-                let popularObj = JSON.parse(populares[index]); // Convertir la cadena JSON de vuelta a un objeto
-                document.getElementById('title_hero').textContent = popularObj.title; // Asignar el título al contenido de la etiqueta h2
+                let popularObj = populares[index];
+                document.getElementById('title_hero').textContent = popularObj.title;
                 document.getElementById('sinopsis_hero').textContent = popularObj.overview;
+                console.log('Que cosa: ', popularObj);
 
                 let idPeli = popularObj.id;
 
                 let header = document.getElementById('myHeader');
                 header.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${popularObj.backdrop_path})`;
 
-                index = (index + 1) % 5; // Avanzar al siguiente título (ciclo circular)
+                index = (index + 1) % 4; // Avanzar al siguiente título (ciclo circular)
             }
 
-            // Mostrar el primer título inmediatamente y luego actualizar cada 3 segundos
+            // Mostrar el primer título inmediatamente y luego actualizar cada 7 segundos
             mostrarCincoPopulares();
-            setInterval(mostrarCincoPopulares, 7000)
+            setInterval(mostrarCincoPopulares, 7000);
 
 
             // datos.results.forEach(pelicula => {

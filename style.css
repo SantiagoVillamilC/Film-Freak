@@ -170,6 +170,21 @@ header {
 	background-attachment: inherit;
 	background-size: cover;
 }
+.container-info-popular{
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+.container-backdrop-popular h2{
+	/* text-align: center; */
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	width: 40%;
+	border-radius: 0 15px 15px 0px;
+	background-color: var(--background-minus-black);
+}
 .card-popular-hero{
 	grid-column: auto/span 3;
     grid-row: auto/span 2;
@@ -182,13 +197,22 @@ header {
 }
 .poster-card-popular-hero{
 	height: 90%;
-	/* width: 50%; */
+	/* width: auto; */
 	/* margin-top: -1rem; */
-	background-image: url('https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg');
+	/* background-image: url('https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg'); */
 	background-repeat: no-repeat;
 	background-attachment: inherit;
 	background-size: cover;
 	border-radius: 5px;
+	margin-right: 0.5rem;
+}
+.information-card{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 1rem;
+	text-align: center;
 }
 
 .container-buttons-hero {
