@@ -2,10 +2,21 @@ let pagina = 1;
 const btnAnterior = document.getElementById('btnAnterior');
 const btnSiguiente = document.getElementById('btnSiguiente');
 
+verBoton();
+
+function verBoton(){
+    if (pagina > 1) {
+        btnAnterior.style.display = "block";
+    } else {
+        btnAnterior.style.display = "none";
+    }
+}
+
 btnSiguiente.addEventListener('click', () => {
     if (pagina < 1000) {
         pagina += 1;
         cargarPeliculas();
+        verBoton();
     }
 });
 
@@ -13,6 +24,7 @@ btnAnterior.addEventListener('click', () => {
     if (pagina > 1) {
         pagina -= 1;
         cargarPeliculas();
+        verBoton();
     }
 });
 
@@ -31,7 +43,7 @@ const cargarPeliculas = async () => {
             datos.results.forEach(pelicula => {
                 peliculas += `
 					<div class="pelicula" id="peliculaPopular${pelicula.id}">
-						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
+						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="movie poster">
 					</div>
 				`;
             });
@@ -76,7 +88,7 @@ const cargarPeliculasEnTeatros = async () => {
             datos.results.slice(0, 5).forEach(pelicula => {
                 peliculas += `
                     <div class="peliculaTeatros" id="peliculaTeatro${pelicula.id}">
-                        <img class="peliTeatro" src="https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}">
+                        <img class="peliTeatro" src="https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}" alt="movie backdrop">
                         <h3 class="tituloTeatro">${pelicula.title}</h3>
                     </div>
                 `;
@@ -109,7 +121,81 @@ const cargarPeliculasEnTeatros = async () => {
 cargarPeliculasEnTeatros();
 
 
+let paginaTopRated = 1;
+const btnAnteriorTopRated = document.getElementById('btnAnteriorTopRated');
+const btnSiguienteTopRated = document.getElementById('btnSiguienteTopRated');
 
+verBotonTopRated();
+
+function verBotonTopRated(){
+    if (paginaTopRated > 1) {
+        btnAnteriorTopRated.style.display = "block";
+    } else {
+        btnAnteriorTopRated.style.display = "none";
+    }
+}
+
+btnSiguienteTopRated.addEventListener('click', () => {
+    if (paginaTopRated < 1000) {
+        paginaTopRated += 1;
+        cargarPeliculasTopRated();
+        verBotonTopRated();
+    }
+});
+
+btnAnteriorTopRated.addEventListener('click', () => {
+    if (paginaTopRated > 1) {
+        paginaTopRated -= 1;
+        cargarPeliculasTopRated();
+        verBotonTopRated();
+    }
+});
+
+
+const cargarPeliculasTopRated = async () => {
+    try {
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX&page=${paginaTopRated}`);
+
+        console.log(respuesta);
+
+        // Si la respuesta es correcta
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
+
+            let peliculas = '';
+            datos.results.forEach(pelicula => {
+                peliculas += `
+					<div class="pelicula" id="peliculaPopular${pelicula.id}">
+						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="movie poster">
+					</div>
+				`;
+            });
+
+            document.getElementById('contenedorTopRated').innerHTML = peliculas;
+
+            datos.results.forEach(pelicula => {
+                document.getElementById(`peliculaPopular${pelicula.id}`).addEventListener('click', function () {
+                    setTimeout(() => {
+                        window.location.href = `movie.html?id=${pelicula.id}`;
+                    }, 10);
+                });
+            });
+
+        } else if (respuesta.status === 401) {
+            console.log('Pusiste la llave mal');
+        } else if (respuesta.status === 404) {
+            console.log('La pelicula que buscas no existe');
+        } else {
+            console.log('Hubo un error y no sabemos que paso');
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+cargarPeliculasTopRated();
 
 
 

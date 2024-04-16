@@ -19,7 +19,7 @@ function obtenerIdPeliculaDeURL() {
         const movieInfoDiv = document.getElementById('movieInfo');
         movieInfoDiv.innerHTML = `
           <h2>${data.title}</h2>
-          <img class="poster" src="https://image.tmdb.org/t/p/w500/${data.poster_path}">
+          <img class="poster" src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="movie poster">
           <p><strong>Descripción:</strong> ${data.overview}</p>
           <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
           <!-- Puedes añadir más información de la película aquí -->
