@@ -246,6 +246,7 @@ main{
 
 .peliculaTeatros .peliTeatro{
 	border-radius: 1rem 1rem 0 0;
+	width: 30vw;
 }
 .contenedorTrailers{
 	display: flex;
@@ -285,7 +286,8 @@ iframe{
 } */
 
 .contenedor .pelicula .poster {
-	height: 40%;
+	height: 100%;
+	width: 14vw;
 	/* width: 100%; */
 	/* margin-bottom: 10px; */
 	border-radius: 1rem;

@@ -43,7 +43,7 @@ const cargarPeliculas = async () => {
             datos.results.forEach(pelicula => {
                 peliculas += `
 					<div class="pelicula" id="peliculaPopular${pelicula.id}">
-						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="movie poster">
+						<img class="poster" src="https://image.tmdb.org/t/p/original/${pelicula.poster_path}" alt="movie poster">
 					</div>
 				`;
             });
@@ -88,7 +88,7 @@ const cargarPeliculasEnTeatros = async () => {
             datos.results.slice(0, 5).forEach(pelicula => {
                 peliculas += `
                     <div class="peliculaTeatros" id="peliculaTeatro${pelicula.id}">
-                        <img class="peliTeatro" src="https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}" alt="movie backdrop">
+                        <img class="peliTeatro" src="https://image.tmdb.org/t/p/original/${pelicula.backdrop_path}" alt="movie backdrop">
                         <h3 class="tituloTeatro">${pelicula.title}</h3>
                     </div>
                 `;
@@ -381,7 +381,7 @@ const cargarCincoPopulares = async () => {
                 let idPeli = popularObj.id;
 
                 let header = document.getElementById('myHeader');
-                header.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${popularObj.backdrop_path})`;
+                header.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${popularObj.backdrop_path})`;
 
                 index = (index + 1) % 4; // Avanzar al siguiente título (ciclo circular)
             }
