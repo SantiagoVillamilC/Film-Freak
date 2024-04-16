@@ -12,13 +12,14 @@ function obtenerIdPeliculaDeURL() {
     const apiKey = 'cace972f4626db6a5ee3ae755a24b03d';
 
     // Hacer la solicitud a la API de TMDB para obtener la información de la película
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es`)
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-MX`)
       .then(response => response.json())
       .then(data => {
         // Mostrar la información de la película en la página
         const movieInfoDiv = document.getElementById('movieInfo');
         movieInfoDiv.innerHTML = `
           <h2>${data.title}</h2>
+          <img class="poster" src="https://image.tmdb.org/t/p/w500/${data.poster_path}">
           <p><strong>Descripción:</strong> ${data.overview}</p>
           <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
           <!-- Puedes añadir más información de la película aquí -->

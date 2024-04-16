@@ -1,0 +1,81 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: black;
+	color: var(--white-text);
+	/* overflow-x: hidden; */
+}
+
+:root {
+    --background: #050505;
+	--background-minus-black: #151616;
+    --purple-principal: #8A2BE2;
+    --celeste-principal: #00FFFF;
+
+	--white-text: #e0e0e0;
+}
+header {
+	/* display: grid; */
+	/* grid-template-columns: repeat(2, 1fr); */
+	height: 10vh;
+	width: 100%;
+	align-items: center;
+	
+	/* background-image: url('https://www.etapainfantil.com/wp-content/uploads/2020/05/Peliculas-Netflix-familiares-1000x563.jpg.webp'); */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100%;
+	/* padding-bottom: 5vh; */
+
+	position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* Adjust height for fade-out length */
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--background)); */
+  }
+}
+.header-bar{
+	display: grid;
+	grid-template-columns: 20% 80%;
+	height: 10vh;
+	padding: 1vh 3vw;
+	align-items: center;
+	/* background: linear-gradient(to top, rgba(255, 255, 255, 0), var(--background)); */
+	background-color: var(--background-minus-black);
+	/* backdrop-filter: blur(5px); */
+    /* border-style: solid; */
+    /* border-color: white; */
+    /* border-width: 2px; */
+    /* border-radius: 15px; */
+	margin-bottom: 1rem;
+
+	&:hover{
+		background-color: var(--background);
+		transition: 2s;
+	}
+}
+
+.logo-header h1{
+	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+	/* background-size: 25%; */
+}
+
+.options-header {
+	display: flex;
+	gap: 3vw;
+	justify-content: flex-end;
+	align-items: center;
+}
