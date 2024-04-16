@@ -4,7 +4,7 @@ const btnSiguiente = document.getElementById('btnSiguiente');
 
 verBoton();
 
-function verBoton(){
+function verBoton() {
     if (pagina > 1) {
         btnAnterior.style.display = "block";
     } else {
@@ -127,7 +127,7 @@ const btnSiguienteTopRated = document.getElementById('btnSiguienteTopRated');
 
 verBotonTopRated();
 
-function verBotonTopRated(){
+function verBotonTopRated() {
     if (paginaTopRated > 1) {
         btnAnteriorTopRated.style.display = "block";
     } else {
@@ -196,6 +196,67 @@ const cargarPeliculasTopRated = async () => {
 }
 
 cargarPeliculasTopRated();
+
+const cargarTrailers = async () => {
+    try {
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX`);
+
+        // Si la respuesta es correcta
+        if (respuesta.status === 200) {
+            const respuesta = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX`);
+
+            // Si la respuesta es correcta
+            if (respuesta.status === 200) {
+                const datos = await respuesta.json();
+                let trailersHTML = '';
+                const apiKey = 'cace972f4626db6a5ee3ae755a24b03d';
+                const language = 'es-MX';
+            
+                // Promesas para todas las solicitudes de video
+                const videoPromises = datos.results.slice(0, 4).map(async (pelicula) => {
+                    const videoRespuesta = await fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=${apiKey}&language=${language}`);
+                    if (videoRespuesta.status === 200) {
+                        const videoDatos = await videoRespuesta.json();
+                        // Seleccionar solo el primer video (si existe) de cada película
+                        const primerVideo = videoDatos.results.length > 0 ? videoDatos.results[0] : null;
+                        return primerVideo;
+                    }
+                    return null;
+                });
+            
+                // Esperar a que todas las solicitudes de video se completen
+                const videosPorPelicula = await Promise.all(videoPromises);
+            
+                // Generar HTML para los trailers
+                videosPorPelicula.forEach(video => {
+                    if (video) {
+                        trailersHTML += `
+                            <div class="pelicula">
+                                <iframe src="https://www.youtube.com/embed/${video.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        `;
+                    }
+                });
+            
+                // Establecer el contenido HTML en el contenedor con el ID 'contenedorTrailers'
+                document.getElementById('contenedorTrailers').innerHTML = trailersHTML;
+            }
+            
+        } else if (respuesta.status === 401) {
+            console.log('Pusiste la llave mal');
+        } else if (respuesta.status === 404) {
+            console.log('La pelicula que buscas no existe');
+        } else {
+            console.log('Hubo un error y no sabemos que paso');
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+cargarTrailers();
 
 
 

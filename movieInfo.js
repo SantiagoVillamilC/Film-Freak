@@ -22,6 +22,18 @@ function obtenerIdPeliculaDeURL() {
           <img class="poster" src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="movie poster">
           <p><strong>Descripción:</strong> ${data.overview}</p>
           <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
+
+          <p><strong>Presupuesto:</strong> ${data.budget}</p>
+          <p><strong>Generos:</strong> ${JSON.stringify(data.genres[0].name)}</p>
+
+          <p><strong>Estado:</strong> ${data.status}</p>
+          <p><strong>Compañias:</strong> ${JSON.stringify(data.production_companies[0].name)}</p>
+
+          <p><strong>tagline:</strong> ${data.tagline}</p>
+          <p><strong>vote_average:</strong> ${data.vote_average}</p>
+
+          <p><strong>vote_count:</strong> ${data.vote_count}</p>
+
           <!-- Puedes añadir más información de la película aquí -->
         `;
       })
