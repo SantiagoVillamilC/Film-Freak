@@ -27,7 +27,6 @@ function obtenerIdPeliculaDeURL() {
           <p><strong>Generos:</strong> ${JSON.stringify(data.genres[0].name)}</p>
 
           <p><strong>Estado:</strong> ${data.status}</p>
-          <p><strong>Compañias:</strong> ${JSON.stringify(data.production_companies[0].name)}</p>
 
           <p><strong>tagline:</strong> ${data.tagline}</p>
           <p><strong>vote_average:</strong> ${data.vote_average}</p>
@@ -36,6 +35,15 @@ function obtenerIdPeliculaDeURL() {
 
           <!-- Puedes añadir más información de la película aquí -->
         `;
+        
+        let header = document.getElementById("header");
+        header.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${data.backdrop_path})`;
+
+        let tituloPelicula = document.getElementById('tituloPelicula');
+        tituloPelicula.textContent = `${data.title}`
+
+        let frasePelicula = document.getElementById('frasePelicula');
+        frasePelicula.textContent = `${data.tagline}`;
       })
       .catch(error => {
         console.error('Error al obtener información de la película:', error);
@@ -44,3 +52,18 @@ function obtenerIdPeliculaDeURL() {
 
   // Llamar a la función para mostrar la información de la película cuando la página se cargue
   window.addEventListener('DOMContentLoaded', mostrarInformacionPelicula);
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var logoHeader = document.getElementById("logoHeader");
+    logoHeader.addEventListener("click", function() {
+        window.location.href = "index.html";
+    });
+});
+
+
+setInterval(cambiarColorTitulos, 7000);
+
+function cambiarColorTitulos() {
+  let tituloFrasePelicula = document.getElementById('tituloFrasePelicula');
+  tituloFrasePelicula.classList.toggle('cambio-color');
+}

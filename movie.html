@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleMovie.css">
-    <title>Document</title>
+    <link rel="icon" href="icono.png">
+    <title>FilmFreak | Info. Pelicula</title>
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="header-bar">
-            <div class="logo-header">
+            <div class="logo-header" id="logoHeader">
                 <h1>Film Freak</h1>
             </div>
             <div class="options-header">
-                <p>En teatros</p>
-                <p>Populares</p>
-                <p>Trailers</p>
+                <p>Buscar Pelicula</p>
             </div>
         </div>
+        <div class="headerContainer" id="tituloFrasePelicula">
+            <div class="containerTituloPelicula">
+                <h2 class="tituloPelicula" id="tituloPelicula">Titulo</h2>
+                <h3 class="frasePelicula" id="frasePelicula">Frase</h3>
+            </div>
+            <p>Desliza hacia abajo</p>
+        </div>
     </header>
-    <a href="index.html">Volver</a>
+    <!-- <div>Regresar a la pagina principal</div> -->
+    <!-- <a href="index.html">Volver</a> -->
     <div id="movieInfo"></div>
     <script src="movieInfo.js"></script>
 </body>
