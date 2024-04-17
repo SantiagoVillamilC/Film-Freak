@@ -213,7 +213,7 @@ const cargarTrailers = async () => {
                 const language = 'es-MX';
             
                 // Promesas para todas las solicitudes de video
-                const videoPromises = datos.results.slice(0, 4).map(async (pelicula) => {
+                const videoPromises = datos.results.slice(0, 3).map(async (pelicula) => {
                     const videoRespuesta = await fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=${apiKey}&language=${language}`);
                     if (videoRespuesta.status === 200) {
                         const videoDatos = await videoRespuesta.json();

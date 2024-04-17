@@ -29,21 +29,28 @@ function mostrarInformacionPelicula() {
       // Mostrar la información de la película en la página
       const movieInfoDiv = document.getElementById('movieInfo');
       // Construir una cadena con todos los géneros separados por comas
-      const genresString = data.genres.map(genre => genre.name).join(', ');
+      // Construir una cadena con divs para cada género
+      const genresDivs = data.genres.map(genre => `<div class="genre"><strong>${genre.name}</strong></div>`).join('');
+
       movieInfoDiv.innerHTML = `
           <div class="container-titles">
             <h2>${data.title}</h2>
             <h3>${data.tagline}</h3>
           </div>
           <div class="container-plot">
-            <p><strong>Sinopsis</strong></p>
+            <p><strong>Sinopsis:</strong></p>
             <p>${data.overview}</p>
           </div>
 
-          <p><strong>Generos:</strong> ${genresString}</p>
+          <div class="genres-container">
+            <p><strong>Géneros:</strong></p>
+            ${genresDivs}
+          </div>
           
-          <p><strong>Titulo Original:</strong> ${data.original_title}</p>
-          <p><strong>Idioma Original:</strong> ${data.original_language}</p>
+          <div class="original-language-container">
+            <p><strong>Titulo Original:</strong> ${data.original_title}</p>
+            <p><strong>Idioma Original:</strong> ${data.original_language}</p>
+          </div>
           
 
           <!-- Puedes añadir más información de la película aquí -->
@@ -52,10 +59,12 @@ function mostrarInformacionPelicula() {
       //<p><strong>revenue:</strong> ${data.revenue}</p>
       const scoreDiv = document.getElementById('scoreDiv');
       scoreDiv.innerHTML = `
-          <p id="voteAverageElement" class="rating-circle"><strong>vote_average:</strong> ${data.vote_average}</p>
-          
-          <p><strong>vote_count:</strong> ${data.vote_count}</p>
+          <div class="container-score-principal">
+            <p id="voteAverageElement" class="rating-circle"><strong>${data.vote_average}</strong></p>
+          </div>
+          <p class="votes-count"><strong>${data.vote_count}</strong> votos</p>
       `;
+      //<p>Calificacion:</p>
 
       // Suponiendo que "runtime" es el valor obtenido de la API
       let runtime = data.runtime; // Ejemplo de duración de la película en minutos
@@ -90,21 +99,22 @@ function mostrarInformacionPelicula() {
       // Función para asignar un color según el puntaje
       function getColorForVoteAverage(formattedVoteAverage) {
         if (formattedVoteAverage >= 7) {
-          return "green"; // Verde para puntajes altos
+          return "#00E676"; // Verde para puntajes altos
         } else if (formattedVoteAverage >= 5) {
-          return "orange"; // Naranja para puntajes medios
+          return "#FFEB3B"; // Naranja para puntajes medios
         } else {
-          return "red"; // Rojo para puntajes bajos
+          return "#FF5252"; // Rojo para puntajes bajos
         }
       }
 
       // Obtener el color correspondiente al puntaje
       let color = getColorForVoteAverage(formattedVoteAverage);
 
-
       // Aplicar el color al elemento HTML que muestra el puntaje
-      let voteAverageElement = document.getElementById('voteAverageElement');
-      voteAverageElement.style.color = color;
+      // const voteAverageElement = document.getElementById('voteAverageElement');
+      // voteAverageElement.style.color = color;
+      
+      scoreDiv.style.backgroundColor = color;
 
     })
     .catch(error => {
