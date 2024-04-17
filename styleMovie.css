@@ -164,7 +164,32 @@ header {
 	display: flex;
 	flex-direction: column;
 }
+.divisor-movieInfo{
+	display: grid;
+	grid-template-columns: 80% 20%;	
+}
 .movieInfo{
+	padding: 1.5rem;
+}
+.movieInfo h2{
+	font-size: 2.5rem;
+}
+.movieInfo h3{
+	font-size: 1.2rem;
+}
+.container-titles{
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+.container-plot{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.scoreDiv{
 	padding: 1.5rem;
 }
 .barInfo{

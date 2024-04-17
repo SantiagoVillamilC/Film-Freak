@@ -28,28 +28,61 @@ function mostrarInformacionPelicula() {
       posterPeli.innerHTML = `<img class="poster" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="movie poster">`;
       // Mostrar la información de la película en la página
       const movieInfoDiv = document.getElementById('movieInfo');
+      // Construir una cadena con todos los géneros separados por comas
+      const genresString = data.genres.map(genre => genre.name).join(', ');
       movieInfoDiv.innerHTML = `
-          <h2>${data.title}</h2>
-          <p><strong>Descripción:</strong> ${data.overview}</p>
+          <div class="container-titles">
+            <h2>${data.title}</h2>
+            <h3>${data.tagline}</h3>
+          </div>
+          <div class="container-plot">
+            <p><strong>Sinopsis</strong></p>
+            <p>${data.overview}</p>
+          </div>
 
-          <p><strong>Generos:</strong> ${JSON.stringify(data.genres[0].name)}</p>
+          <p><strong>Generos:</strong> ${genresString}</p>
           
+          <p><strong>Titulo Original:</strong> ${data.original_title}</p>
+          <p><strong>Idioma Original:</strong> ${data.original_language}</p>
           
-          <p id="voteAverageElement" class="rating-circle"><strong>vote_average:</strong> ${data.vote_average}</p>
-          
-          <p><strong>vote_count:</strong> ${data.vote_count}</p>
-          <p><strong>revenue:</strong> ${data.revenue}</p>
-          
-          
-          
-          <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
-          <p><strong>runtime:</strong> ${data.runtime}</p>
-          <p><strong>Presupuesto:</strong> $ ${data.budget}</p>
 
           <!-- Puedes añadir más información de la película aquí -->
         `;
       //<p><strong>Estado:</strong> ${data.status}</p>
-      //<p><strong>tagline:</strong> ${data.tagline}</p>
+      //<p><strong>revenue:</strong> ${data.revenue}</p>
+      const scoreDiv = document.getElementById('scoreDiv');
+      scoreDiv.innerHTML = `
+          <p id="voteAverageElement" class="rating-circle"><strong>vote_average:</strong> ${data.vote_average}</p>
+          
+          <p><strong>vote_count:</strong> ${data.vote_count}</p>
+      `;
+
+      // Suponiendo que "runtime" es el valor obtenido de la API
+      let runtime = data.runtime; // Ejemplo de duración de la película en minutos
+
+      // Convertir a horas y minutos
+      let hours = Math.floor(runtime / 60); // Obtener el número de horas (en este caso, 1 hora)
+      let minutes = runtime % 60; // Obtener el número de minutos (en este caso, 55 minutos)
+
+      // Crear una cadena legible
+      let durationString = hours + "h " + minutes + "min";
+
+      console.log(durationString);
+
+
+      const barInfo = document.getElementById('barInfo');
+      barInfo.innerHTML = `
+          <div>
+            <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
+          </div>
+          <div>
+            <p><strong>Duracion:</strong> ${durationString}</p>
+          </div>
+          <div>
+            <p><strong>Presupuesto:</strong> $ ${data.budget}</p>
+          </div>
+      `;
+
 
       let voteAverage = data.vote_average; //Puntaje de la película
       let formattedVoteAverage = Number(voteAverage.toFixed(1));
