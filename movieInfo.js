@@ -78,19 +78,32 @@ function mostrarInformacionPelicula() {
 
       console.log(durationString);
 
+      // Obtener el presupuesto de la película de la respuesta de la API
+      let budget = data.budget;
 
+      // Formatear el presupuesto para que sea más legible para el usuario
+      let formattedBudget = budget.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+
+      // Insertar el presupuesto formateado en el DOM
       const barInfo = document.getElementById('barInfo');
       barInfo.innerHTML = `
-          <div>
-            <p><strong>Fecha de Lanzamiento:</strong> ${data.release_date}</p>
-          </div>
-          <div>
-            <p><strong>Duracion:</strong> ${durationString}</p>
-          </div>
-          <div>
-            <p><strong>Presupuesto:</strong> $ ${data.budget}</p>
-          </div>
-      `;
+        <div class="bar-info-icon">
+          <i class="bi bi-calendar3"></i>
+          <p><strong>Lanzamiento:</strong> ${data.release_date}</p>
+        </div>
+        <div class="bar-info-icon">
+          <i class="bi bi-clock"></i>
+          <p><strong>Duración:</strong> ${durationString}</p>
+        </div>
+        <div class="bar-info-icon">
+          <i class="bi bi-cash-coin"></i>
+          <p><strong>Presupuesto:</strong> ${formattedBudget}</p>
+        </div>
+`;
+
 
 
       let voteAverage = data.vote_average; //Puntaje de la película
@@ -113,9 +126,24 @@ function mostrarInformacionPelicula() {
       // Aplicar el color al elemento HTML que muestra el puntaje
       // const voteAverageElement = document.getElementById('voteAverageElement');
       // voteAverageElement.style.color = color;
-      
+
+      const scoreFace = document.getElementById('scoreFace');
+
+      scoreFace.style.color = color;
       scoreDiv.style.backgroundColor = color;
 
+      function getEmoji(formattedVoteAverage) {
+        if (formattedVoteAverage >= 7) {
+          return "bi bi-emoji-smile";
+        } else if (formattedVoteAverage >= 5) {
+          return "bi bi-emoji-neutral"; // Naranja para puntajes medios
+        } else {
+          return "bi bi-emoji-frown"; // Rojo para puntajes bajos
+        }
+      }
+      scoreFace.innerHTML = `
+        <i class="${getEmoji(formattedVoteAverage)}"></i>
+      `;
     })
     .catch(error => {
       console.error('Error al obtener información de la película:', error);

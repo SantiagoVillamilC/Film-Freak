@@ -67,7 +67,15 @@ header {
 		transition: 2s;
 	}
 }
-
+.logo-header{
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+.logo-header i{
+	font-size: 1.5rem;
+	color: var(--white-text);
+}
 .logo-header h1{
 	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
     -webkit-background-clip: text;
@@ -213,6 +221,7 @@ main{
 	/* background-color: var(--background-minus-black); */
 	grid-column: auto/span 8;
     grid-row: auto/span 3;
+	margin-top: 1rem;
 }
 
 .button-movie-popular{
@@ -293,6 +302,14 @@ iframe{
 	border-radius: 1rem;
 }
 
+.contenedor .pelicula .posterRated {
+	height: 95%;
+	width: 14vw;
+	/* width: 100%; */
+	/* margin-bottom: 10px; */
+	border-radius: 1rem;
+}
+
 .header-section-pelis{
 	display: flex;
 	justify-content: space-between;
@@ -304,6 +321,7 @@ iframe{
 	/* width: 100%; */
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 20px;
 	/* padding: 10px; */
 }
@@ -317,15 +335,17 @@ iframe{
 	text-align: center;
 	height: 100%;
 	width: auto;
-	padding: 0 1rem;
-	background: #241744;
+	/* padding: 0 1rem; */
+	background: var(--background);
 	color: #fff;
-	border-radius: 100px;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600;
+	/* border-radius: 100px; */
 	transition: .3s ease all;
+	/* font-size: 1rem; */
+}
+button i{
+	font-size: 2rem;
 }
 
-.paginacion button:hover {
+/* .paginacion button:hover {
 	background: #137c32;
-}
+} */

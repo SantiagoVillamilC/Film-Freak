@@ -166,7 +166,7 @@ const cargarPeliculasTopRated = async () => {
             datos.results.forEach(pelicula => {
                 peliculas += `
 					<div class="pelicula" id="peliculaPopular${pelicula.id}">
-						<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="movie poster">
+						<img class="posterRated" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="movie poster">
 					</div>
 				`;
             });
