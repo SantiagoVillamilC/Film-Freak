@@ -6,15 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Film Freak</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="icono.png">
+  <link rel="icon" href="icons/claqueta.png">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <div class="header-bar">
       <div class="logo-header">
+        <!-- <img src="icons/claqueta.png" alt=""> -->
         <h1>Film Freak</h1>
       </div>
       <div class="options-header">
@@ -23,10 +24,10 @@
         <p>Trailers</p>
         <a href="search.html">
           <div class="option-search">
-              <p>Buscar Peliculas</p>
-              <i class="bi bi-search"></i>
+            <p>Buscar Peliculas</p>
+            <i class="bi bi-search"></i>
           </div>
-      </a>
+        </a>
       </div>
     </div>
     <h3 class="introduction-section">Lo mas popular hoy</h3>
@@ -37,12 +38,7 @@
         </div>
         <div class="container-info-popular">
           <div class="">
-            <p id="sinopsis_hero">Descubre el poder del cálculo integral, una rama
-              fascinante de las matemáticas que tiene aplicaciones en una amplia variedad de campos, desde la
-              física
-              hasta
-              la economía, nuestro objetivo es ofrecerte todo lo que necesitas para dominar este
-              tema.</p>
+            <p id="sinopsis_hero"></p>
           </div>
         </div>
       </div>
@@ -78,7 +74,7 @@
   </header>
   <a href="search.html">
     <section class="container-invitation-filter">
-      <p>¿Buscas una pelicula en especifico?</p>
+      <p>¿Buscas una pelicula?</p>
       <p>Haz click aqui</p>
     </section>
   </a>
@@ -113,10 +109,25 @@
       </div>
       <div class="contenedor" id="contenedorTopRated"></div>
     </section>
-    <footer>
-      Soy un footer
-    </footer>
   </main>
+  <footer>
+    <hr>
+    <div class="info-footer">
+      <p>© 2024 - <a href="https://github.com/SantiagoVillamilC/Film-Freak" target="_blank" rel="noopener noreferrer"><i
+            class="bi bi-github"></i>Santiago Villamil</a></p>
+      <a href="#header">
+        <div class="logo-header">
+          <h1>Film Freak</h1>
+        </div>
+      </a>
+      <div class="elements-footer">
+        <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" class="elements-footer">
+          <p>API TMDB</p>
+          <i class="bi bi-camera-reels-fill"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
