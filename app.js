@@ -1,8 +1,10 @@
 let pagina = 1;
 const btnAnterior = document.getElementById('btnAnterior');
 const btnSiguiente = document.getElementById('btnSiguiente');
+const paginaPopular = document.getElementById('paginaPopular');
 
 verBoton();
+paginaPopular.textContent = `Página ${pagina}`;
 
 function verBoton() {
     if (pagina > 1) {
@@ -17,6 +19,7 @@ btnSiguiente.addEventListener('click', () => {
         pagina += 1;
         cargarPeliculas();
         verBoton();
+        paginaPopular.textContent = `Pagina: ${pagina}`;
     }
 });
 
@@ -25,6 +28,7 @@ btnAnterior.addEventListener('click', () => {
         pagina -= 1;
         cargarPeliculas();
         verBoton();
+        paginaPopular.textContent = `Pagina: ${pagina}`;
     }
 });
 
@@ -33,7 +37,7 @@ const cargarPeliculas = async () => {
     try {
         const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=cace972f4626db6a5ee3ae755a24b03d&language=es-MX&page=${pagina}`);
 
-        console.log(respuesta);
+        // console.log(respuesta);
 
         // Si la respuesta es correcta
         if (respuesta.status === 200) {
@@ -127,6 +131,10 @@ const btnSiguienteTopRated = document.getElementById('btnSiguienteTopRated');
 
 verBotonTopRated();
 
+const mostrarPaginaTopRated = document.getElementById('mostrarPaginaTopRated');
+mostrarPaginaTopRated.textContent = `Página ${paginaTopRated}`;
+
+
 function verBotonTopRated() {
     if (paginaTopRated > 1) {
         btnAnteriorTopRated.style.display = "block";
@@ -140,6 +148,7 @@ btnSiguienteTopRated.addEventListener('click', () => {
         paginaTopRated += 1;
         cargarPeliculasTopRated();
         verBotonTopRated();
+        mostrarPaginaTopRated.textContent = `Página ${paginaTopRated}`;
     }
 });
 
@@ -148,6 +157,7 @@ btnAnteriorTopRated.addEventListener('click', () => {
         paginaTopRated -= 1;
         cargarPeliculasTopRated();
         verBotonTopRated();
+        mostrarPaginaTopRated.textContent = `Página ${paginaTopRated}`;
     }
 });
 

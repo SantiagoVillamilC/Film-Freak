@@ -83,7 +83,12 @@ header {
     color: transparent;
 	/* background-size: 25%; */
 }
-
+.option-search{
+	display: flex;
+	color: var(--white-text);
+	gap: 0.5rem;
+	align-items: center;
+}
 .options-header {
 	display: flex;
 	gap: 3vw;
