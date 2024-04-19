@@ -219,8 +219,8 @@ main{
 }
 .section-trailers{
 	/* background-color: var(--background-minus-black); */
-	grid-column: auto/span 4;
-    grid-row: auto/span 9;
+	grid-column: 9/span 4;
+    grid-row: 1/span 9;
 	margin-left: 1rem;
 }
 .section-popular{
