@@ -1,0 +1,31 @@
+/* Media query para pantallas pequeñas, como celulares */
+@media only screen and (max-width: 500px) {
+    header{
+        height: auto;
+    }
+    .header-bar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .options-header .option{
+        display: none;
+    }
+    .more-popular-hero{
+        display: flex;
+        flex-direction: column;
+    }
+    .container-principal-popular{
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+    .container-backdrop-popular{
+        height: 30vh;
+    }
+}
+
+/* Media query para pantallas más grandes, como tablets */
+@media only screen and (max-width: 768px) {
+
+}

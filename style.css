@@ -409,7 +409,7 @@ ul li {
 /* Estilo del scrollbar */
 *::-webkit-scrollbar {
     width: 10px; /* Ancho del scrollbar vertical */
-    height: 5px; /* Alto del scrollbar horizontal */
+    height: 7px; /* Alto del scrollbar horizontal */
 }
 
 /* Estilo del thumb (barra deslizadora) */
