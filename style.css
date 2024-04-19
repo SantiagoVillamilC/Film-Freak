@@ -237,11 +237,13 @@ main{
 
 .button-movie-popular{
 	cursor: pointer;
-	background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
+	/* background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent; */
+	background-color: var(--white-text);
 	border-radius: 10px;
+	color: var(--background);
 	border-color: var(--background);
 	border-width: 1px;
 	border-style: solid;
@@ -324,6 +326,7 @@ iframe{
 .header-section-pelis{
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 .paginacion {
 	/* position: fixed; */
@@ -399,3 +402,24 @@ ul li {
 	display: flex;
 	gap: 0.5rem;
 }
+
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+/* Estilo del scrollbar */
+*::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar vertical */
+    height: 5px; /* Alto del scrollbar horizontal */
+}
+
+/* Estilo del thumb (barra deslizadora) */
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--purple-principal), var(--celeste-principal));
+    border-radius: 10px;
+}
+
+/* Estilo de la pista (track) */
+*::-webkit-scrollbar-track {
+    background: transparent; /* Color de fondo del track */
+}
+

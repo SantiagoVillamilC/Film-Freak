@@ -5,11 +5,10 @@
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	background: black;
-	color: var(--white-text);
-	/* overflow-x: hidden; */
+    background: black !important;
+    color: var(--white-text) !important;
 }
+
 html{
 	scroll-behavior: smooth;
 }
