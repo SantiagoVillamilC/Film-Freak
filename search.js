@@ -9,7 +9,7 @@ searchInput.addEventListener('input', async function() {
 
 async function searchMovies(query) {
     const apiKey = 'cace972f4626db6a5ee3ae755a24b03d';
-    const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${query}&language=es&api_key=${apiKey}&page=1`;
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${query}&language=es-MX&api_key=${apiKey}&page=1`;
     
     const response = await fetch(apiUrl);
     const data = await response.json();
