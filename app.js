@@ -221,7 +221,7 @@ const cargarTrailers = async () => {
                 let trailersHTML = '';
                 const apiKey = 'cace972f4626db6a5ee3ae755a24b03d';
                 const language = 'es-MX';
-            
+
                 // Promesas para todas las solicitudes de video
                 const videoPromises = datos.results.slice(0, 3).map(async (pelicula) => {
                     const videoRespuesta = await fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=${apiKey}&language=${language}`);
@@ -233,10 +233,10 @@ const cargarTrailers = async () => {
                     }
                     return null;
                 });
-            
+
                 // Esperar a que todas las solicitudes de video se completen
                 const videosPorPelicula = await Promise.all(videoPromises);
-            
+
                 // Generar HTML para los trailers
                 videosPorPelicula.forEach(video => {
                     if (video) {
@@ -247,11 +247,11 @@ const cargarTrailers = async () => {
                         `;
                     }
                 });
-            
+
                 // Establecer el contenido HTML en el contenedor con el ID 'contenedorTrailers'
                 document.getElementById('contenedorTrailers').innerHTML = trailersHTML;
             }
-            
+
         } else if (respuesta.status === 401) {
             console.log('Pusiste la llave mal');
         } else if (respuesta.status === 404) {
@@ -317,7 +317,7 @@ const cargarCincoPopulares = async () => {
 
             let populares = [];
 
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 5; i++) {
                 populares.push(JSON.parse(JSON.stringify(datos.results[i])));
             }
 
@@ -325,75 +325,42 @@ const cargarCincoPopulares = async () => {
 
             // console.log('Populares: ' + (populares));
 
-            for (let i = 0; i < 4; i++) {
-                console.log("Primeras 4 películas más populares hoy: ", populares[i].title, populares[i].poster_path);
-            }
+            // for (let i = 0; i < 5; i++) {
+            //     console.log("Primeras 5 películas más populares hoy: ", populares[i].title, populares[i].poster_path);
+            // }
 
-            let firstCardPopular = document.getElementById('firstCardPopular');
-            firstCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[0].poster_path})`;
-            let firstTitleCardPopular = document.getElementById('firstTitleCardPopular');
-            firstTitleCardPopular.textContent = populares[0].title;
 
-            let secondCardPopular = document.getElementById('secondCardPopular');
-            secondCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[1].poster_path})`;
-            let secondTitleCardPopular = document.getElementById('secondTitleCardPopular');
-            secondTitleCardPopular.textContent = populares[1].title;
-
-            let thirdCardPopular = document.getElementById('thirdCardPopular');
-            thirdCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[2].poster_path})`;
-            let thirdTitleCardPopular = document.getElementById('thirdTitleCardPopular');
-            thirdTitleCardPopular.textContent = populares[2].title;
-
-            let fourthCardPopular = document.getElementById('fourthCardPopular');
-            fourthCardPopular.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${populares[3].poster_path})`;
-            let fourthTitleCardPopular = document.getElementById('fourthTitleCardPopular');
-            fourthTitleCardPopular.textContent = populares[3].title;
-
-            // Manejar el evento de clic en el botón
-            document.getElementById('firstButtonPopular').addEventListener('click', function () {
-                // Obtener el ID de la película o cualquier otro dato necesario
-                let movieId = `${populares[0].id}`; // Debes reemplazar esto con el ID de la película que deseas mostrar
-
-                // Redireccionar a la página de la película con el ID como parámetro de consulta
-                // Agregar un pequeño retraso para asegurarnos de que la URL se actualice antes de la redirección
-                setTimeout(() => {
-                    window.location.href = `movie.html?id=${movieId}`;
-                }, 10);
-            });
-            document.getElementById('secondButtonPopular').addEventListener('click', function () {
-                let movieId = `${populares[1].id}`;
-                setTimeout(() => {
-                    window.location.href = `movie.html?id=${movieId}`;
-                }, 10);
-            });
-            document.getElementById('thirdButtonPopular').addEventListener('click', function () {
-                let movieId = `${populares[2].id}`;
-                setTimeout(() => {
-                    window.location.href = `movie.html?id=${movieId}`;
-                }, 10);
-            });
-            document.getElementById('fourButtonPopular').addEventListener('click', function () {
-                let movieId = `${populares[3].id}`;
-                setTimeout(() => {
-                    window.location.href = `movie.html?id=${movieId}`;
-                }, 10);
-            });
 
             let index = 0;
 
             // Función para mostrar el título de las películas de forma ordenada
             function mostrarCincoPopulares() {
                 let popularObj = populares[index];
-                document.getElementById('title_hero').textContent = popularObj.title;
-                document.getElementById('sinopsis_hero').textContent = popularObj.overview;
-                console.log('Que cosa: ', popularObj);
+                // document.getElementById('title_hero').textContent = popularObj.title;
+                // document.getElementById('sinopsis_hero').textContent = popularObj.overview;
+                // console.log('Que cosa: ', popularObj);
 
-                let idPeli = popularObj.id;
+                // let idPeli = popularObj.id;
+
+                // let header = document.getElementById('myHeader');
+                // header.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${popularObj.backdrop_path})`;
 
                 let header = document.getElementById('myHeader');
                 header.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${popularObj.backdrop_path})`;
 
-                index = (index + 1) % 4; // Avanzar al siguiente título (ciclo circular)
+                const posterHeaderPopular = document.getElementById('posterHeaderPopular');
+                posterHeaderPopular.src = `https://image.tmdb.org/t/p/original/${popularObj.poster_path}`;
+
+                const titlePopular = document.getElementById('titlePopular');
+                titlePopular.textContent = popularObj.title;
+
+                const generosPopular = document.getElementById('generosPopular');
+                generosPopular.textContent = popularObj.release_date;
+
+                const headerURL = document.getElementById('headerURL');
+                headerURL.href = `movie.html?id=${popularObj.id}`;
+
+                index = (index + 1) % 5; // Avanzar al siguiente título (ciclo circular)
             }
 
             // Mostrar el primer título inmediatamente y luego actualizar cada 7 segundos

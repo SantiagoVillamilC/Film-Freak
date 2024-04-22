@@ -16,40 +16,52 @@
 
 <body>
   <header id="header">
-    <div class="header-bar">
-      <div class="logo-header raleway-bold">
-        <!-- <img src="icons/claqueta.png" alt=""> -->
-        <h1>Film Freak</h1>
+    <nav>
+      <div class="header-bar">
+        <div class="logo-header raleway-bold">
+          <!-- <img src="icons/claqueta.png" alt=""> -->
+          <h1>Film Freak</h1>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Nombre de la pelicula">
+          <button type="submit">Buscar</button>
+        </div>
+        <div class="options-header raleway-normal">
+          <p class="option">En teatros</p>
+          <p class="option">Populares</p>
+          <p class="option">Trailers</p>
+          <a href="search.html">
+            <div class="option-search">
+              <p>Filtrar Pelis</p>
+              <i class="bi bi-search"></i>
+            </div>
+          </a>
+        </div>
       </div>
-      <div class="search-container">
-        <input type="text" placeholder="Nombre de la pelicula">
-        <button type="submit">Buscar</button>
-      </div>
-      <div class="options-header raleway-normal">
-        <p class="option">En teatros</p>
-        <p class="option">Populares</p>
-        <p class="option">Trailers</p>
-        <a href="search.html">
-          <div class="option-search">
-            <p>Filtrar Pelis</p>
-            <i class="bi bi-search" ></i>
-          </div>
-        </a>
-      </div>
-    </div>
-    <h3 class="introduction-section">Lo mas popular hoy</h3>
+    </nav>
+    <!-- <h3 class="introduction-section">Lo mas popular hoy</h3> -->
     <section class="more-popular-hero">
-      <div class="container-principal-popular">
-        <div class="container-backdrop-popular" id="myHeader">
-          <h2 class="" id="title_hero">Titulo</h2>
-        </div>
-        <div class="container-info-popular">
-          <div class="">
-            <p id="sinopsis_hero"></p>
+      <a href="" class="headerURL" id="headerURL">
+        <div class="container-principal-popular">
+          <div class="container-backdrop-popular" id="myHeader">
+            <!-- <h2 class="" id="title_hero">Titulo</h2> -->
+          </div>
+          <div class="container-info-popular">
+            <div class="format-container-info-popular">
+              <img class="poster-popular" id="posterHeaderPopular" src="" alt="poster">
+              <div class="play-button"><i class="bi bi-play-circle-fill"></i></div>
+              <div class="titles-popular">
+                <h2 id="titlePopular" class="raleway-bold">Titulo</h2>
+                <p id="generosPopular" class="raleway-normal">Frase</p>
+              </div>
+              <div class="">
+                <p id="sinopsis_hero"></p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-popular-hero">
+      </a>
+      <!-- <div class="card-popular-hero">
         <div class="poster-card-popular-hero" id="firstCardPopular"></div>
         <div class="information-card">
           <h2 id="firstTitleCardPopular">Titulo</h2>
@@ -76,7 +88,7 @@
           <h2 id="fourthTitleCardPopular">Titulo</h2>
           <div id="fourButtonPopular" class="button-movie-popular">Ver detalles</div>
         </div>
-      </div>
+      </div> -->
     </section>
   </header>
   <a href="search.html">
