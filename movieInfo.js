@@ -50,6 +50,7 @@ function mostrarInformacionPelicula() {
           <div class="original-language-container">
             <p><strong>Titulo Original:</strong> ${data.original_title}</p>
             <p><strong>Idioma Original:</strong> ${data.original_language}</p>
+            <p><strong>Estado:</strong> ${data.status}</p>
           </div>
           
 
