@@ -109,6 +109,7 @@ header {
 	color: var(--pink-principal);
 	cursor: pointer;
 	position: relative;
+	font-size: 2rem;
 }
 
 .logo-header h1::after {
