@@ -718,6 +718,10 @@ ul li {
 	gap: 0.5rem;
 }
 
+footer a{
+	text-decoration: none;
+}
+
 
 /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
 

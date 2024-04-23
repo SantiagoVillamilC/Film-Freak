@@ -36,10 +36,6 @@
         height: 30vh;
     }
 
-    .container-info-popular {
-        /* padding-bottom: 1rem; */
-    }
-
     .format-container-info-popular {
         padding-bottom: 1rem;
         display: grid;
@@ -96,6 +92,58 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .header-section-pelis{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor{
+        padding: 0;
+        gap: 0.8rem;
+    }
+
+    .pelicula{
+        height: 25vh;
+        width: 35vw;
+        padding: 0;
+    }
+    .poster{
+        width: 100% !important;
+    }
+    .posterRated{
+        height: 100% !important;
+        width: 100% !important;
+    }
+    footer{
+        padding: 1rem;
+    }
+   
+    .info-footer{
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-auto-rows: 2.5rem;
+        grid-gap: 0.5rem;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .first-row-footer{
+        grid-row: 1/span 1;
+        grid-column: auto/span 4;
+    }
+    .second-row-footer{
+        grid-row: 2/span 1;
+        grid-column: 2/span 4;
+        text-align: center; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .third-row-footer{
+        grid-row: 1/span 1;
+        grid-column: 5/span 2;
     }
 }
 

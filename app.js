@@ -4,7 +4,7 @@ const btnSiguiente = document.getElementById('btnSiguiente');
 const paginaPopular = document.getElementById('paginaPopular');
 
 verBoton();
-paginaPopular.textContent = `Página ${pagina} - Desliza hacia la derecha e izquierda para ver todas las pelis`;
+paginaPopular.textContent = `Página ${pagina} - Desliza para verlas todas`;
 
 function verBoton() {
     if (pagina > 1) {
@@ -132,7 +132,7 @@ const btnSiguienteTopRated = document.getElementById('btnSiguienteTopRated');
 verBotonTopRated();
 
 const mostrarPaginaTopRated = document.getElementById('mostrarPaginaTopRated');
-mostrarPaginaTopRated.textContent = `Página ${paginaTopRated} - Desliza hacia la derecha e izquierda para ver todas las pelis`;
+mostrarPaginaTopRated.textContent = `Página ${paginaTopRated} - Desliza para verlas todas`;
 
 
 function verBotonTopRated() {
