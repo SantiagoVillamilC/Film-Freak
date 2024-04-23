@@ -223,7 +223,7 @@ const cargarTrailers = async () => {
                 const language = 'es-MX';
 
                 // Promesas para todas las solicitudes de video
-                const videoPromises = datos.results.slice(0, 3).map(async (pelicula) => {
+                const videoPromises = datos.results.slice(0, 10).map(async (pelicula) => {
                     const videoRespuesta = await fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=${apiKey}&language=${language}`);
                     if (videoRespuesta.status === 200) {
                         const videoDatos = await videoRespuesta.json();
@@ -241,8 +241,10 @@ const cargarTrailers = async () => {
                 videosPorPelicula.forEach(video => {
                     if (video) {
                         trailersHTML += `
-                            <div class="pelicula">
-                                <iframe src="https://www.youtube.com/embed/${video.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        
+                        <iframe src="https://www.youtube.com/embed/${video.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="trailerFrame">
+                                
                             </div>
                         `;
                     }
