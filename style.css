@@ -189,7 +189,9 @@ button i {
 
 }
 
-
+.options-header a{
+	color: var(--white-text);
+}
 .option-search {
 	display: flex;
 	color: var(--white-text);

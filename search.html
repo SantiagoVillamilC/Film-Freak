@@ -26,27 +26,20 @@
             </div>
           </nav>
     </header>
-    <!-- <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <h1 style="color: aliceblue;">Hola</h1>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Nombre de la pelicula" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-        </div>
-    </nav> -->
-    <div class="container">
-        <h1>Buscar Películas</h1>
+    <section class="container">
+        <h1 class="raleway-bold">Buscar Películas</h1>
         <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
             <form class="container-fluid" id="searchForm">
               <div class="input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input id="searchInput" type="text" class="form-control" placeholder="Escribe aqui el nombre de la pelicula que buscas" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="searchInput" type="text" class="form-control" placeholder="Escribe el nombre de la pelicula" aria-label="Username" aria-describedby="basic-addon1">
               </div>
             </form>
           </nav>
-        <div id="results" class="row row-cols-1 row-cols-md-3 g-4"></div>
-    </div>
+    </section>
+    <main>
+      <div id="results" class="row row-cols-1 row-cols-md-3 g-4"></div>
+    </main>
     <script src="search.js"></script>
 </body>
 

@@ -31,6 +31,7 @@ body {
 
 html{
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 :root {
@@ -136,66 +137,25 @@ header {
 	/* Ancho cero cuando no se pasa el cursor */
 }
 
-
-/* .search-container {
-	position: relative;
-	display: inline-block;
-	width: 40%;
-} */
-
-/* input[type="text"] {
-	padding: 0.8rem;
-	border: none;
-	border-radius: 5px;
-	width: 100%;
-	box-sizing: border-box;
-	background-color: var(--background-minus-black);
-	color: var(--white-text);
-	font-size: 1rem;
-} */
-
-
-/* button:hover {
-	background-color: #333;
-  } */
-
-/* Icon inside button */
-/* button i {
-	height: 100%;
-
-} */
-
-
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+	background-color: #2B3035;
+	border-radius: 20px;
+	box-shadow: 5px 5px 10px var(--pink-principal);
+}
+
+main{
+	width: 100%;
+	padding: 1rem;
 }
 
 h1 {
     margin-bottom: 20px;
 }
 
-/* form {
-    margin-bottom: 20px;
-} */
-
-/* input[type="text"], select {
-    margin-right: 10px;
-}
-
-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-} */
-
-/* button:hover {
-    background-color: #0056b3;
-} */
 .navbar{
 	margin-bottom: 1rem;
 }

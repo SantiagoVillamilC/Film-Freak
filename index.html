@@ -27,9 +27,11 @@
           <button type="submit">Buscar</button>
         </div>
         <div class="options-header raleway-normal">
-          <p class="option">En teatros</p>
-          <p class="option">Populares</p>
-          <p class="option">Trailers</p>
+           
+          <a href="#sectionTeatros"><p class="option">En teatros</p></a>
+          <a href="#sectionPopular"><p class="option">Populares</p></a>
+          <a href="#sectionTrailers"><p class="option">Trailers</p></a>
+          
           <a href="search.html">
             <div class="option-search">
               <p>Filtrar Pelis</p>
@@ -70,14 +72,14 @@
     </section>
   </a>
   <main>
-    <section class="section-in-theaters">
-      <h3>Ahora mismo en teatros</h3>
-      <div class="contenedorTeatros" id="containerTheaters"></div>
+    <section class="section-in-theaters" id="sectionTeatros">
+      <h3 class="raleway-bold">Ahora mismo en teatros</h3>
+      <div class="contenedorTeatros raleway-normal" id="containerTheaters"></div>
     </section>
-    <section class="section-popular">
+    <section class="section-popular" id="sectionPopular">
       <div class="header-section-pelis">
-        <h3>Populares</h3>
-        <div class="paginacion">
+        <h3 class="raleway-bold">Populares</h3>
+        <div class="paginacion raleway-normal">
           <button id="btnAnterior"><i class="bi bi-arrow-left-circle-fill"></i></button>
           <p id="paginaPopular"></p>
           <button id="btnSiguiente"><i class="bi bi-arrow-right-circle-fill"></i></button>
@@ -87,8 +89,8 @@
     </section>
     <section class="section-top-rated">
       <div class="header-section-pelis">
-        <h3>Lo mejor valorado</h3>
-        <div class="paginacion">
+        <h3 class="raleway-bold">Lo mejor valorado</h3>
+        <div class="paginacion raleway-normal">
           <button id="btnAnteriorTopRated"><i class="bi bi-arrow-left-circle-fill"></i></button>
           <p id="mostrarPaginaTopRated"></p>
           <button id="btnSiguienteTopRated"><i class="bi bi-arrow-right-circle-fill"></i></button>
@@ -96,24 +98,24 @@
       </div>
       <div class="contenedor" id="contenedorTopRated"></div>
     </section>
-    <section class="section-trailers">
-      <h3>Trailers & Videos</h3>
+    <section class="section-trailers" id="sectionTrailers">
+      <h3 class="raleway-bold">Trailers & Videos</h3>
       <div class="contenedorTrailers" id="contenedorTrailers"></div>
     </section>
   </main>
   <footer>
     <hr>
     <div class="info-footer">
-      <p class="first-row-footer">© 2024 - <a href="https://github.com/SantiagoVillamilC/Film-Freak" target="_blank" rel="noopener noreferrer"><i
+      <p class="first-row-footer raleway-normal">© 2024 - <a href="https://github.com/SantiagoVillamilC/Film-Freak" target="_blank" rel="noopener noreferrer"><i
             class="bi bi-github"></i>Santiago Villamil</a></p>
       <a href="#header" class="second-row-footer">
-        <div class="logo-header">
+        <div class="logo-header raleway-bold">
           <h1>Film Freak</h1>
         </div>
       </a>
       <div class="elements-footer third-row-footer">
-        <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" class="elements-footer">
-          <p>API TMDB</p>
+        <a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer" class="elements-footer raleway-normal">
+          <p class="raleway-normal">API TMDB</p>
           <i class="bi bi-camera-reels-fill"></i>
         </a>
       </div>
