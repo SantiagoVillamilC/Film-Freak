@@ -137,13 +137,13 @@ header {
 }
 
 
-.search-container {
+/* .search-container {
 	position: relative;
 	display: inline-block;
 	width: 40%;
-}
+} */
 
-input[type="text"] {
+/* input[type="text"] {
 	padding: 0.8rem;
 	border: none;
 	border-radius: 5px;
@@ -152,7 +152,7 @@ input[type="text"] {
 	background-color: var(--background-minus-black);
 	color: var(--white-text);
 	font-size: 1rem;
-}
+} */
 
 
 /* button:hover {
@@ -160,66 +160,11 @@ input[type="text"] {
   } */
 
 /* Icon inside button */
-button i {
-	/* font-size: 1rem; */
+/* button i {
 	height: 100%;
 
-}
+} */
 
-.option-search {
-	display: flex;
-	color: var(--white-text);
-	gap: 0.5rem;
-	align-items: center;
-	padding: 0.5rem;
-	border-radius: 5px;
-	background-color: var(--pink-principal);
-
-	&:hover {
-		transition: 0.5s;
-		transform: scale(1.2);
-		background-color: var(--white-text);
-		color: var(--pink-principal);
-	}
-
-	&:not(:hover) {
-		transition: 0.5s;
-	}
-}
-
-.options-header {
-	display: flex;
-	gap: 3vw;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.option {
-	/* color: var(--pink-principal); */
-	cursor: pointer;
-	position: relative;
-}
-
-.option::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: -2px;
-	width: 0;
-	height: 2px;
-	background-color: var(--white-text);
-	transition: width 0.4s ease-in-out;
-}
-
-.option:hover::after {
-	width: 100%;
-	/* Ancho completo al pasar el cursor */
-}
-
-.option:not(:hover)::after {
-	width: 0;
-	/* Ancho cero cuando no se pasa el cursor */
-}
 
 .container {
     max-width: 800px;
@@ -232,11 +177,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-form {
+/* form {
     margin-bottom: 20px;
-}
+} */
 
-input[type="text"], select {
+/* input[type="text"], select {
     margin-right: 10px;
 }
 
@@ -246,18 +191,29 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-}
+} */
 
-button:hover {
+/* button:hover {
     background-color: #0056b3;
+} */
+.navbar{
+	margin-bottom: 1rem;
 }
 
 #results {
+	margin-top: 1rem;
     text-align: left;
 }
 
 .movie {
     margin-bottom: 20px;
+	grid-row: auto/span 3;
+	grid-column: auto/span 12;
+
+	/* &:hover{
+		transform: scale(1.05);
+		transition: 0.2s;
+	} */
 }
 
 .movie h2 {
@@ -269,7 +225,7 @@ button:hover {
 }
 
 .movie a {
-    color: #007bff;
+    color: var(--pink-principal);
     text-decoration: none;
 }
 
