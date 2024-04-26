@@ -4,11 +4,10 @@ function obtenerIdPeliculaDeURL() {
   return urlParams.get('id');
 }
 
-// Función para hacer la solicitud a la API de TMDB y mostrar la información de la película
+// Funcion para hacer la solicitud a la API de TMDB y mostrar la información de la película
 function mostrarInformacionPelicula() {
   const movieId = obtenerIdPeliculaDeURL();
   console.log(movieId);
-  // Aquí debes reemplazar 'tu_api_key' con tu clave de API de TMDB
   const apiKey = 'cace972f4626db6a5ee3ae755a24b03d';
 
   // Hacer la solicitud a la API de TMDB para obtener la información de la película
@@ -68,13 +67,12 @@ function mostrarInformacionPelicula() {
       //<p>Calificacion:</p>
 
       // Suponiendo que "runtime" es el valor obtenido de la API
-      let runtime = data.runtime; // Ejemplo de duración de la película en minutos
+      let runtime = data.runtime;
 
       // Convertir a horas y minutos
-      let hours = Math.floor(runtime / 60); // Obtener el número de horas (en este caso, 1 hora)
-      let minutes = runtime % 60; // Obtener el número de minutos (en este caso, 55 minutos)
+      let hours = Math.floor(runtime / 60);
+      let minutes = runtime % 60;
 
-      // Crear una cadena legible
       let durationString = hours + "h " + minutes + "min";
 
       console.log(durationString);
@@ -115,7 +113,7 @@ function mostrarInformacionPelicula() {
         if (formattedVoteAverage >= 7) {
           return "#00E676"; // Verde para puntajes altos
         } else if (formattedVoteAverage >= 5) {
-          return "#FFEB3B"; // Naranja para puntajes medios
+          return "#FFEB3B"; // Amarillo para puntajes medios
         } else {
           return "#FF5252"; // Rojo para puntajes bajos
         }
@@ -137,9 +135,9 @@ function mostrarInformacionPelicula() {
         if (formattedVoteAverage >= 7) {
           return "bi bi-emoji-smile";
         } else if (formattedVoteAverage >= 5) {
-          return "bi bi-emoji-neutral"; // Naranja para puntajes medios
+          return "bi bi-emoji-neutral";
         } else {
-          return "bi bi-emoji-frown"; // Rojo para puntajes bajos
+          return "bi bi-emoji-frown"; 
         }
       }
       scoreFace.innerHTML = `
