@@ -221,6 +221,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+        
 
         .headerURL {
             color: $white-personal;
@@ -318,7 +319,7 @@ header {
                             margin-left: 1rem;
                 
                             h2{
-                                font-size: 1.7rem;
+                                @include letraTitulos(1.7rem);
                             }
                         }
                     }            

@@ -265,5 +265,9 @@ header .more-popular-hero .headerURL .container-principal-popular .container-inf
   margin-left: 1rem;
 }
 header .more-popular-hero .headerURL .container-principal-popular .container-info-popular .format-container-info-popular .titles-popular h2 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
   font-size: 1.7rem;
 }/*# sourceMappingURL=indexStyle.css.map */
