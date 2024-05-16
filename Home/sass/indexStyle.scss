@@ -353,21 +353,127 @@ header {
 	}
 }
 
+iframe {
+	width: 100%;
+	border-radius: 10px;
+}
+
 main{
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 	margin: 2rem 3rem;
-    @include letraNormal(1rem);
+    @include letraNormal(1.1rem);
 
     .section-in-theaters {
         grid-column: auto/span 12;
         grid-row: auto/span 3;
+
+        .contenedorTeatros {
+            padding: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            text-align: center;
+            overflow-x: scroll;
+            border-radius: 1rem;
+
+            .peliculaTeatros {
+                border-radius: 1rem;
+                cursor: pointer;
+                background-color: $background-minus-black;
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+                padding-bottom: 0.2rem;
+            
+                &:hover{
+                    transform: scale(1.03);
+                    background-color: $white-personal;
+                    color: $background-minus-black;
+                    transition: 0.2s;
+                }
+                &:not(:hover){
+                    transition: 0.2s;
+                }
+
+                .peliTeatro {
+                    border-radius: 1rem 1rem 0 0;
+                    width: 30vw;
+                }
+            }
+        }
     }
     
     .section-popular {
         grid-column: auto/span 12;
         grid-row: 4/span 3;
+
+        .header-section-pelis {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .paginacion {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+
+                button {
+                    cursor: pointer;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    height: 100%;
+                    width: auto;
+                    background: var(--background);
+                    color: #fff;
+                    transition: .3s ease all;
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .contenedor {
+            height: 95%;
+            padding: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(21, 1fr);
+            overflow-x: scroll;
+            overflow-y: hidden;
+            border-radius: 1rem;
+            gap: 1.15rem;
+
+            .pelicula {
+                text-align: center;
+                cursor: pointer;
+            
+                &:hover{
+                    transform: scale(1.08);
+                    transition: 0.2s;
+                }
+                &:not(:hover){
+                    transition: 0.2s;
+                }
+
+                .poster {
+                    height: 100%;
+                    width: 14vw;
+                    border-radius: 1rem;
+                }
+
+                .posterRated {
+                    height: 95%;
+                    width: 14vw;
+                    border-radius: 1rem;
+                }
+            }
+        }
+        
     }
     
     .section-top-rated {
@@ -379,6 +485,19 @@ main{
         grid-column: auto/span 4;
         grid-row: auto/span 9;
         margin-left: 1rem;
+
+        .contenedorTrailers {
+            display: flex;
+            overflow-x: scroll;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        //Está mal el javascript :D 
+        /*.trailerFrame{
+            background-color: #00FFFF;
+        }*/
     }
 }
 

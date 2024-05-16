@@ -300,6 +300,11 @@ header .more-popular-hero .headerURL .container-principal-popular .container-inf
   transition: 0.2s;
 }
 
+iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -309,15 +314,103 @@ main {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 main .section-in-theaters {
   grid-column: auto/span 12;
   grid-row: auto/span 3;
 }
+main .section-in-theaters .contenedorTeatros {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  text-align: center;
+  overflow-x: scroll;
+  border-radius: 1rem;
+}
+main .section-in-theaters .contenedorTeatros .peliculaTeatros {
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+main .section-in-theaters .contenedorTeatros .peliculaTeatros:hover {
+  transform: scale(1.03);
+  background-color: #e0e0e0;
+  color: #121212;
+  transition: 0.2s;
+}
+main .section-in-theaters .contenedorTeatros .peliculaTeatros:not(:hover) {
+  transition: 0.2s;
+}
+main .section-in-theaters .contenedorTeatros .peliculaTeatros .peliTeatro {
+  border-radius: 1rem 1rem 0 0;
+  width: 30vw;
+}
 main .section-popular {
   grid-column: auto/span 12;
   grid-row: 4/span 3;
+}
+main .section-popular .header-section-pelis {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .section-popular .header-section-pelis .paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main .section-popular .header-section-pelis .paginacion button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: auto;
+  background: var(--background);
+  color: #fff;
+  transition: 0.3s ease all;
+  font-size: 2rem;
+}
+main .section-popular .contenedor {
+  height: 95%;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-radius: 1rem;
+  gap: 1.15rem;
+}
+main .section-popular .contenedor .pelicula {
+  text-align: center;
+  cursor: pointer;
+}
+main .section-popular .contenedor .pelicula:hover {
+  transform: scale(1.08);
+  transition: 0.2s;
+}
+main .section-popular .contenedor .pelicula:not(:hover) {
+  transition: 0.2s;
+}
+main .section-popular .contenedor .pelicula .poster {
+  height: 100%;
+  width: 14vw;
+  border-radius: 1rem;
+}
+main .section-popular .contenedor .pelicula .posterRated {
+  height: 95%;
+  width: 14vw;
+  border-radius: 1rem;
 }
 main .section-top-rated {
   grid-column: auto/span 12;
@@ -328,4 +421,14 @@ main .section-trailers {
   grid-column: auto/span 4;
   grid-row: auto/span 9;
   margin-left: 1rem;
+  /*.trailerFrame{
+      background-color: #00FFFF;
+  }*/
+}
+main .section-trailers .contenedorTrailers {
+  display: flex;
+  overflow-x: scroll;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
 }/*# sourceMappingURL=indexStyle.css.map */
