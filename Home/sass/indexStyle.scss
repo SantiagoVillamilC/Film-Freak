@@ -326,18 +326,62 @@ header {
                 }
             }
         }
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
+}
+
+.container-invitation-filter {
+	backdrop-filter: blur(5px);
+	background-color: rgba(255, 20, 147, 0.6);
+	margin: 0 3vw;
+	color: $white-personal;
+	text-align: center;
+	padding: 2.5rem;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+    @include letraTitulos(2rem);
+
+	&:hover{
+		transform: scale(1.02);
+		background-color: rgba(255, 20, 147, 0.8);
+		transition: 0.2s;
+	}
+	&:not(:hover){
+		transition: 0.2s;
+	}
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin: 2rem 3rem;
+    @include letraNormal(1rem);
+
+    .section-in-theaters {
+        grid-column: auto/span 12;
+        grid-row: auto/span 3;
+    }
+    
+    .section-popular {
+        grid-column: auto/span 12;
+        grid-row: 4/span 3;
+    }
+    
+    .section-top-rated {
+        grid-column: auto/span 12;
+        grid-row: 7/span 3;
+        margin-top: 1rem;
+    }
+    .section-trailers {
+        grid-column: auto/span 4;
+        grid-row: auto/span 9;
+        margin-left: 1rem;
+    }
+}
+
+footer{
+
 }

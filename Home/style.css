@@ -508,6 +508,8 @@ main {
 	margin-left: 1rem;
 }
 
+/*Ese button-movie-popular parece que toca borrarlo*/
+
 .button-movie-popular {
 	cursor: pointer;
 	/* background: linear-gradient(to left, var(--purple-principal), var(--celeste-principal));
