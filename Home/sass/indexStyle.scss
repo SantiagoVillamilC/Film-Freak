@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,700&display=swap');
+
+//variables:
+
+$background: #000000;
+$background-minus-black: #121212;
+$third-grade-black: #333;
+$pink-principal: #FF1493;
+$purple-principal: #8A2BE2;
+$celeste-principal: #00FFFF;
+$white-personal: #e0e0e0;
+
+
+//mixin
+
+@mixin letraNormal($fsize) {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: $fsize;
+}
+
+@mixin letraTitulos($fsize) {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: italic;
+    font-size: $fsize;
+}
+
+//estilo
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+    background: $background;
+    color: $white-personal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 110vh;
+    width: 100%;
+    align-items: center;
+    background: radial-gradient($pink-principal, $background);
+
+    position: relative;
+
+    .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 10vh;
+        padding: 1vh 4vw;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        i {
+            font-size: 1.5rem;
+            color: $white-personal;
+        }
+
+        h1 {
+            @include letraTitulos(2rem);
+            color: $pink-principal;
+            cursor: pointer;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            /* Ajusta el valor para la posición del subrayado */
+            width: 0;
+            height: 2px;
+            /* Grosor del subrayado */
+            background-color: $pink-principal;
+            transition: width 0.5s ease-in-out;
+            /* Transición para el ancho */
+        }
+
+        h1:hover::after {
+            width: 100%;
+            /* Ancho completo al pasar el cursor */
+        }
+
+        h1:not(:hover)::after {
+            width: 0;
+            /* Ancho cero cuando no se pasa el cursor */
+        }
+    }
+    .search-container {
+        position: relative;
+        display: inline-block;
+        width: 40%;
+
+        input[type="text"] {
+            padding: 0.6rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: $background-minus-black;
+            color: $white-personal;
+            font-size: 1rem;
+        }
+        
+        button {
+            padding: 0.6rem;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: $third-grade-black;
+            color: $white-personal;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.8rem;
+            font-size: 1rem;
+        
+            &:hover {
+                background-color: $pink-principal;
+                transition: 0.5s;
+            }
+        
+            &:not(:hover) {
+                transition: 0.5s;
+            }
+
+            i{
+                height: 100%;
+            }
+        }
+    }
+
+    .options-header {
+        display: flex;
+        gap: 3vw;
+        justify-content: flex-end;
+        align-items: center;
+
+        a{
+            color: $white-personal;
+            
+        }
+
+        .option {
+            @include letraNormal(1rem);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .option::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: $white-personal;
+            transition: width 0.4s ease-in-out;
+        }
+        
+        .option:hover::after {
+            width: 100%;
+            /* Ancho completo al pasar el cursor */
+        }
+        
+        .option:not(:hover)::after {
+            width: 0;
+            /* Ancho cero cuando no se pasa el cursor */
+        }
+
+        .option-search {
+            display: flex;
+            color: $white-personal;
+            gap: 0.5rem;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: $pink-principal;
+            @include letraNormal(1rem);
+        
+            &:hover {
+                transition: 0.5s;
+                transform: scale(1.2);
+                background-color: $white-personal;
+                color: $pink-principal;
+            }
+        
+            &:not(:hover) {
+                transition: 0.5s;
+            }
+        }
+    }
+    
+
+    .more-popular-hero {
+        padding: 0 8vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .headerURL {
+            color: $white-personal;
+            transition: color 1s; /* Transición para el color de texto */
+        
+            &:hover {
+                transform: scale(1.03);
+                transition: transform 1s;
+        
+                /* Cambios en el header cuando .headerURL se hoverea */
+                .format-container-info-popular {
+                    background-color: rgba(255, 255, 255, 0.2);
+                    transition: 1s;
+                }
+                i{
+                    transition: 1.2s;
+                }
+            }
+        
+            &:not(:hover) {
+                transition: 1.2s;
+        
+                .format-container-info-popular {
+                    transition: 1s;
+                }
+            }
+
+            
+
+            .container-principal-popular {
+                border-radius: 10px;
+                backdrop-filter: blur(5px);
+                background-color: rgba(255, 255, 255, 0.1);
+                width: 100%;
+                height: 85vh;
+
+                .container-backdrop-popular {
+                    border-radius: 10px 10px 0 0;
+                    width: 100%;
+                    height: 85%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+        
+                    h2 {
+                        margin-top: 1rem;
+                        padding: 0.5rem 1rem;
+                        width: 35%;
+                        border-radius: 0 15px 15px 0px;
+                        background-color: $background-minus-black;
+                    }
+                }
+
+
+                .container-info-popular {
+                    height: 15%;
+                    border-radius: 0 0 10px 10px;
+
+                    .format-container-info-popular{
+                        display: grid;
+                        grid-template-columns: repeat(12, minmax(0, 1fr));
+                        grid-auto-rows: auto;
+                        grid-gap: 1rem;
+                        position: relative;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0 1rem;
+                        border-radius: 0 0 10px 10px;
+                        height: 100%;
+
+                        .poster-popular {
+                            grid-column: auto/span 3;
+                            aspect-ratio: 3/4;
+                            width: 95%;
+                            margin-top: -100%;
+                            border-radius: 10px;
+                        }
+                        
+                        .play-button{
+                            grid-column: 4/span 1;
+                            height: 150%;
+                            margin-top: -45%;
+                            width: 150%;
+                            margin-left: -1rem;
+                            color: var(--white-text);
+                            text-align: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 6rem;
+                        }
+
+                        .titles-popular{
+                            grid-column: 5/span 8;
+                            margin-left: 1rem;
+                
+                            h2{
+                                font-size: 1.7rem;
+                            }
+                        }
+                    }            
+                }
+            }
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
