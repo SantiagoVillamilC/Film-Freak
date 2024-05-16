@@ -181,7 +181,8 @@ header .more-popular-hero {
 }
 header .more-popular-hero .headerURL {
   color: #e0e0e0;
-  transition: color 1s; /* Transición para el color de texto */
+  transition: color 1s;
+  /* Transición para el color de texto */
 }
 header .more-popular-hero .headerURL:hover {
   transform: scale(1.03);
@@ -305,6 +306,10 @@ iframe {
   border-radius: 10px;
 }
 
+button i {
+  font-size: 2rem;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -376,10 +381,9 @@ main .section-popular .header-section-pelis .paginacion button {
   text-align: center;
   height: 100%;
   width: auto;
-  background: var(--background);
-  color: #fff;
+  background: #000000;
+  color: #e0e0e0;
   transition: 0.3s ease all;
-  font-size: 2rem;
 }
 main .section-popular .contenedor {
   height: 95%;
@@ -417,6 +421,62 @@ main .section-top-rated {
   grid-row: 7/span 3;
   margin-top: 1rem;
 }
+main .section-top-rated .header-section-pelis {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .section-top-rated .header-section-pelis .paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main .section-top-rated .header-section-pelis .paginacion button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: auto;
+  background: #000000;
+  color: #e0e0e0;
+  transition: 0.3s ease all;
+}
+main .section-top-rated .contenedor {
+  height: 100%;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-radius: 1rem;
+  gap: 1.15rem;
+}
+main .section-top-rated .contenedor .pelicula {
+  text-align: center;
+  cursor: pointer;
+}
+main .section-top-rated .contenedor .pelicula:hover {
+  transform: scale(1.08);
+  transition: 0.2s;
+}
+main .section-top-rated .contenedor .pelicula:not(:hover) {
+  transition: 0.2s;
+}
+main .section-top-rated .contenedor .pelicula .poster {
+  height: 100%;
+  width: 14vw;
+  border-radius: 1rem;
+}
+main .section-top-rated .contenedor .pelicula .posterRated {
+  height: 95%;
+  width: 14vw;
+  border-radius: 1rem;
+}
 main .section-trailers {
   grid-column: auto/span 4;
   grid-row: auto/span 9;
@@ -431,4 +491,50 @@ main .section-trailers .contenedorTrailers {
   gap: 0.5rem;
   margin-top: 1rem;
   padding-bottom: 1rem;
+}
+
+footer {
+  width: 100%;
+  height: 12vh;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+footer .info-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+footer .info-footer a {
+  color: #e0e0e0;
+}
+footer .info-footer a:hover {
+  text-decoration: underline;
+}
+footer .elements-footer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+/* Estilo del scrollbar */
+*::-webkit-scrollbar {
+  width: 10px;
+  /* Ancho del scrollbar vertical */
+  height: 7px;
+  /* Alto del scrollbar horizontal */
+}
+
+/* Estilo del thumb (barra deslizadora) */
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #FF1493, #e0e0e0);
+  border-radius: 10px;
+}
+
+/* Estilo de la pista (track) */
+*::-webkit-scrollbar-track {
+  background: transparent;
+  /* Color de fondo del track */
 }/*# sourceMappingURL=indexStyle.css.map */

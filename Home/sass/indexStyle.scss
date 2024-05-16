@@ -30,6 +30,75 @@ $white-personal: #e0e0e0;
     font-size: $fsize;
 }
 
+@mixin disposicionHeaderSection {
+    .header-section-pelis {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .paginacion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            button {
+                cursor: pointer;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                height: 100%;
+                width: auto;
+                background: $background;
+                color: $white-personal;
+                transition: .3s ease all;
+            }
+        }
+    }
+}
+
+@mixin disposicionPeliculas ($alturaPoster){
+    .contenedor {
+        height: $alturaPoster;
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: repeat(21, 1fr);
+        overflow-x: scroll;
+        overflow-y: hidden;
+        border-radius: 1rem;
+        gap: 1.15rem;
+
+        .pelicula {
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.08);
+                transition: 0.2s;
+            }
+
+            &:not(:hover) {
+                transition: 0.2s;
+            }
+
+            .poster {
+                height: 100%;
+                width: 14vw;
+                border-radius: 1rem;
+            }
+
+            .posterRated {
+                height: 95%;
+                width: 14vw;
+                border-radius: 1rem;
+            }
+        }
+    }
+}
+
 //estilo
 
 * {
@@ -39,7 +108,7 @@ $white-personal: #e0e0e0;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 body {
@@ -110,6 +179,7 @@ header {
             /* Ancho cero cuando no se pasa el cursor */
         }
     }
+
     .search-container {
         position: relative;
         display: inline-block;
@@ -125,7 +195,7 @@ header {
             color: $white-personal;
             font-size: 1rem;
         }
-        
+
         button {
             padding: 0.6rem;
             border: none;
@@ -138,17 +208,17 @@ header {
             top: 0;
             font-size: 0.8rem;
             font-size: 1rem;
-        
+
             &:hover {
                 background-color: $pink-principal;
                 transition: 0.5s;
             }
-        
+
             &:not(:hover) {
                 transition: 0.5s;
             }
 
-            i{
+            i {
                 height: 100%;
             }
         }
@@ -160,9 +230,9 @@ header {
         justify-content: flex-end;
         align-items: center;
 
-        a{
+        a {
             color: $white-personal;
-            
+
         }
 
         .option {
@@ -170,7 +240,7 @@ header {
             cursor: pointer;
             position: relative;
         }
-        
+
         .option::after {
             content: '';
             position: absolute;
@@ -181,12 +251,12 @@ header {
             background-color: $white-personal;
             transition: width 0.4s ease-in-out;
         }
-        
+
         .option:hover::after {
             width: 100%;
             /* Ancho completo al pasar el cursor */
         }
-        
+
         .option:not(:hover)::after {
             width: 0;
             /* Ancho cero cuando no se pasa el cursor */
@@ -201,55 +271,57 @@ header {
             border-radius: 5px;
             background-color: $pink-principal;
             @include letraNormal(1rem);
-        
+
             &:hover {
                 transition: 0.5s;
                 transform: scale(1.2);
                 background-color: $white-personal;
                 color: $pink-principal;
             }
-        
+
             &:not(:hover) {
                 transition: 0.5s;
             }
         }
     }
-    
+
 
     .more-popular-hero {
         padding: 0 8vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
 
         .headerURL {
             color: $white-personal;
-            transition: color 1s; /* Transición para el color de texto */
-        
+            transition: color 1s;
+            /* Transición para el color de texto */
+
             &:hover {
                 transform: scale(1.03);
                 transition: transform 1s;
-        
+
                 /* Cambios en el header cuando .headerURL se hoverea */
                 .format-container-info-popular {
                     background-color: rgba(255, 255, 255, 0.2);
                     transition: 1s;
                 }
-                i{
+
+                i {
                     transition: 1.2s;
                 }
             }
-        
+
             &:not(:hover) {
                 transition: 1.2s;
-        
+
                 .format-container-info-popular {
                     transition: 1s;
                 }
             }
 
-            
+
 
             .container-principal-popular {
                 border-radius: 10px;
@@ -265,7 +337,7 @@ header {
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
-        
+
                     h2 {
                         margin-top: 1rem;
                         padding: 0.5rem 1rem;
@@ -280,7 +352,7 @@ header {
                     height: 15%;
                     border-radius: 0 0 10px 10px;
 
-                    .format-container-info-popular{
+                    .format-container-info-popular {
                         display: grid;
                         grid-template-columns: repeat(12, minmax(0, 1fr));
                         grid-auto-rows: auto;
@@ -299,8 +371,8 @@ header {
                             margin-top: -100%;
                             border-radius: 10px;
                         }
-                        
-                        .play-button{
+
+                        .play-button {
                             grid-column: 4/span 1;
                             height: 150%;
                             margin-top: -45%;
@@ -314,15 +386,15 @@ header {
                             font-size: 6rem;
                         }
 
-                        .titles-popular{
+                        .titles-popular {
                             grid-column: 5/span 8;
                             margin-left: 1rem;
-                
-                            h2{
+
+                            h2 {
                                 @include letraTitulos(1.7rem);
                             }
                         }
-                    }            
+                    }
                 }
             }
         }
@@ -330,39 +402,44 @@ header {
 }
 
 .container-invitation-filter {
-	backdrop-filter: blur(5px);
-	background-color: rgba(255, 20, 147, 0.6);
-	margin: 0 3vw;
-	color: $white-personal;
-	text-align: center;
-	padding: 2.5rem;
-	border-radius: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.4rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 20, 147, 0.6);
+    margin: 0 3vw;
+    color: $white-personal;
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
     @include letraTitulos(2rem);
 
-	&:hover{
-		transform: scale(1.02);
-		background-color: rgba(255, 20, 147, 0.8);
-		transition: 0.2s;
-	}
-	&:not(:hover){
-		transition: 0.2s;
-	}
+    &:hover {
+        transform: scale(1.02);
+        background-color: rgba(255, 20, 147, 0.8);
+        transition: 0.2s;
+    }
+
+    &:not(:hover) {
+        transition: 0.2s;
+    }
 }
 
 iframe {
-	width: 100%;
-	border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
 
-main{
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	margin: 2rem 3rem;
+button i {
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 3rem;
     @include letraNormal(1.1rem);
 
     .section-in-theaters {
@@ -386,14 +463,15 @@ main{
                 flex-direction: column;
                 gap: 0.2rem;
                 padding-bottom: 0.2rem;
-            
-                &:hover{
+
+                &:hover {
                     transform: scale(1.03);
                     background-color: $white-personal;
                     color: $background-minus-black;
                     transition: 0.2s;
                 }
-                &:not(:hover){
+
+                &:not(:hover) {
                     transition: 0.2s;
                 }
 
@@ -404,83 +482,27 @@ main{
             }
         }
     }
-    
+
     .section-popular {
         grid-column: auto/span 12;
         grid-row: 4/span 3;
 
-        .header-section-pelis {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @include disposicionHeaderSection();
 
-            .paginacion {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
+        @include disposicionPeliculas(95%);
 
-                button {
-                    cursor: pointer;
-                    border: none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    height: 100%;
-                    width: auto;
-                    background: var(--background);
-                    color: #fff;
-                    transition: .3s ease all;
-                    font-size: 2rem;
-                }
-            }
-        }
-
-        .contenedor {
-            height: 95%;
-            padding: 1rem 0;
-            display: grid;
-            grid-template-columns: repeat(21, 1fr);
-            overflow-x: scroll;
-            overflow-y: hidden;
-            border-radius: 1rem;
-            gap: 1.15rem;
-
-            .pelicula {
-                text-align: center;
-                cursor: pointer;
-            
-                &:hover{
-                    transform: scale(1.08);
-                    transition: 0.2s;
-                }
-                &:not(:hover){
-                    transition: 0.2s;
-                }
-
-                .poster {
-                    height: 100%;
-                    width: 14vw;
-                    border-radius: 1rem;
-                }
-
-                .posterRated {
-                    height: 95%;
-                    width: 14vw;
-                    border-radius: 1rem;
-                }
-            }
-        }
-        
     }
-    
+
     .section-top-rated {
         grid-column: auto/span 12;
         grid-row: 7/span 3;
         margin-top: 1rem;
+
+        @include disposicionHeaderSection();
+
+        @include disposicionPeliculas(100%);
     }
+
     .section-trailers {
         grid-column: auto/span 4;
         grid-row: auto/span 9;
@@ -493,7 +515,7 @@ main{
             margin-top: 1rem;
             padding-bottom: 1rem;
         }
-        
+
         //Está mal el javascript :D 
         /*.trailerFrame{
             background-color: #00FFFF;
@@ -501,6 +523,54 @@ main{
     }
 }
 
-footer{
+footer {
+    width: 100%;
+    height: 12vh;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
+    .info-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+
+        a {
+            color: $white-personal;
+        
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .elements-footer {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+/* Estilo del scrollbar */
+*::-webkit-scrollbar {
+	width: 10px;
+	/* Ancho del scrollbar vertical */
+	height: 7px;
+	/* Alto del scrollbar horizontal */
+}
+
+/* Estilo del thumb (barra deslizadora) */
+*::-webkit-scrollbar-thumb {
+	background: linear-gradient(45deg, $pink-principal, $white-personal);
+	border-radius: 10px;
+}
+
+/* Estilo de la pista (track) */
+*::-webkit-scrollbar-track {
+	background: transparent;
+	/* Color de fondo del track */
 }
