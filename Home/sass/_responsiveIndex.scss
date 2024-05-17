@@ -3,23 +3,26 @@
     header {
         height: auto;
         margin-bottom: 1rem;
-        background-color: aqua !important;
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 7vh;
+        }
+
+        .search-container {
+            display: none;
+        }
+
+        .options-header .option {
+            display: none;
+        }
     }
 
-    .header-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 7vh;
-    }
+    
 
-    .search-container {
-        display: none;
-    }
-
-    .options-header .option {
-        display: none;
-    }
+    
 
     .more-popular-hero {
         display: flex;
